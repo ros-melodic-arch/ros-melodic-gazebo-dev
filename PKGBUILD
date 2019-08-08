@@ -4,10 +4,9 @@ pkgdesc="ROS - Provides a cmake config for the default version of Gazebo for the
 url='http://gazebosim.org/tutorials?cat=connect_ros'
 
 pkgname='ros-melodic-gazebo-dev'
-pkgver='2.8.4'
-_pkgver_patch=0
+pkgver='2.8.5'
 arch=('any')
-pkgrel=2
+pkgrel=1
 license=('Apache 2.0')
 
 ros_makedepends=(ros-melodic-catkin)
@@ -18,16 +17,9 @@ ros_depends=()
 depends=(${ros_depends[@]}
   gazebo)
 
-# Git version (e.g. for debugging)
-# _tag=release/melodic/gazebo_dev/${pkgver}-${_pkgver_patch}
-# _dir=${pkgname}
-# source=("${_dir}"::"git+https://github.com/ros-gbp/gazebo_ros_pkgs-release.git"#tag=${_tag})
-# sha256sums=('SKIP')
-
-# Tarball version (faster download)
-_dir="gazebo_ros_pkgs-release-release-melodic-gazebo_dev-${pkgver}-${_pkgver_patch}"
-source=("${pkgname}-${pkgver}-${_pkgver_patch}.tar.gz"::"https://github.com/ros-gbp/gazebo_ros_pkgs-release/archive/release/melodic/gazebo_dev/${pkgver}-${_pkgver_patch}.tar.gz")
-sha256sums=('8479a7d0ab9b939b03ad3f436e8bb3d6af22518143cdc51b822337941b1e62d5')
+_dir="gazebo_ros_pkgs-${pkgver}/gazebo_dev"
+source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/ros-simulation/gazebo_ros_pkgs/archive/${pkgver}.tar.gz")
+sha256sums=('0b0f6eeaeca611ebe12ec0ea4388121098fdafee5ecc8d76c6ae69b8b8f14aed')
 
 build() {
   # Use ROS environment variables
